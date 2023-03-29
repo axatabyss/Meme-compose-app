@@ -4,15 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -41,6 +38,15 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center,
                     ) {
 
+
+                        AsyncImage(
+                            model = memeUrl,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxHeight(0.5f)
+                                .fillMaxWidth(1f)
+                        )
+
                         Button(onClick = {
 
                             val url = "https://meme-api.com/gimme"
@@ -62,10 +68,6 @@ class MainActivity : ComponentActivity() {
                             Text(text = "Get Meme")
                         }
 
-                        AsyncImage(
-                            model = memeUrl,
-                            contentDescription = null
-                        )
 
 
                     }
